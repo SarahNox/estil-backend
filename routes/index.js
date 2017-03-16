@@ -108,7 +108,8 @@ router.put('/profile/:role/:id', (req, res) => {
     User.findByIdAndUpdate(req.params.id, {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      username: req.body.username
+      username: req.body.username,
+      board: req.body.board
     }, (err,user) => {
       if (err) {
         return res.send(err);
@@ -135,8 +136,6 @@ router.put('/profile/:role/:id', (req, res) => {
     }
 
     else {
-      console.log(req.body.price);
-
       Stylist.findByIdAndUpdate(req.params.id, {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
