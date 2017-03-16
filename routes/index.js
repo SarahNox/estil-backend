@@ -174,7 +174,7 @@ router.post('/profile/:role/:id', upload.single('file'), (req, res, next) => {
   console.log(req.file);
 
   let image = {
-    avatar: `http://localhost:3000/uploads/${req.file.filename}`
+    avatar: `https://estil-backend.herokuapp.com/uploads/${req.file.filename}`
   };
 
   MongooseCollection.findByIdAndUpdate(id, image, (err, user)=>{
