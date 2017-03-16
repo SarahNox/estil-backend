@@ -6,7 +6,7 @@ webpackJsonp([1,4],{
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(391);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchService; });
@@ -63,8 +63,8 @@ var SearchService = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__session_service__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__session_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(40);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -108,8 +108,8 @@ var HomeComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__session_service__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__session_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
@@ -188,8 +188,8 @@ var LoginComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__session_service__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__session_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_file_upload__ = __webpack_require__(363);
@@ -264,6 +264,8 @@ var ProfileComponent = (function () {
             .subscribe(function (response) {
             _this.user = response.user;
             _this.appointments = response.app;
+            console.log(_this.user);
+            _this.session.runPinterest();
         });
     };
     ProfileComponent.prototype.profileToggle = function () {
@@ -303,6 +305,8 @@ var ProfileComponent = (function () {
     ProfileComponent.prototype.updateLocationEventListener = function () {
         var stylistLocation = document.getElementById('location');
         var stylistPlace = new google["maps"].places.Autocomplete(stylistLocation);
+        console.log("stylistLocation", stylistLocation);
+        console.log("stylistPlace", stylistPlace);
         google["maps"].event.addListener(stylistPlace, 'place_changed', function () {
             var _this = this;
             this.zone.run(function () {
@@ -355,6 +359,7 @@ var ProfileComponent = (function () {
     ProfileComponent.prototype.updateBoard = function () {
         var _this = this;
         this.zone.run(function () {
+            console.log(_this.user);
             _this.session.edit(_this.user)
                 .subscribe(function (result) {
                 if (result) {
@@ -388,8 +393,8 @@ var ProfileComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_service__ = __webpack_require__(225);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__session_service__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__session_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(40);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -416,6 +421,7 @@ var SearchComponent = (function () {
         this.BASE_URL = 'https://estil-backend.herokuapp.com';
     }
     SearchComponent.prototype.shrinkMap = function (stylist) {
+        var _this = this;
         document.getElementById("col-map").style.display = "none";
         this.list = true;
         var tableRows = document.getElementsByTagName("tr");
@@ -428,7 +434,9 @@ var SearchComponent = (function () {
             }
         }
         event.srcElement.parentElement.parentElement.style.backgroundColor = "#b2e7ff";
-        this.stylist = stylist;
+        this.zone.run(function () {
+            _this.stylist = stylist;
+        });
     };
     SearchComponent.prototype.growMap = function () {
         document.getElementById("col-map").style.display = "block";
@@ -624,8 +632,8 @@ var SearchComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__session_service__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__session_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupComponent; });
@@ -709,7 +717,7 @@ var SignupComponent = (function () {
 
 /***/ }),
 
-/***/ 41:
+/***/ 36:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -719,7 +727,7 @@ var SignupComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__(393);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Rx__ = __webpack_require__(391);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_Rx__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SessionService; });
@@ -753,6 +761,27 @@ var SessionService = (function () {
             this.isAuth.emit(false);
         }
     }
+    SessionService.prototype.runPinterest = function () {
+        (function (w, d, scriptUrl) {
+            var firstScript, newScript, hazPinIt;
+            // generate an unique-ish global ID: hazPinIt_ plus today's Unix day
+            hazPinIt = 'PIN_' + ~~(new Date().getTime() / 86400000);
+            if (!w[hazPinIt]) {
+                // don't run next time
+                w[hazPinIt] = false;
+                // avoid KB927917 error in IE8
+                w.setTimeout(function () {
+                    // load the bulk of pinit.js
+                    firstScript = d.getElementsByTagName('SCRIPT')[0];
+                    newScript = d.createElement('SCRIPT');
+                    newScript.type = 'text/javascript';
+                    newScript.async = true;
+                    newScript.src = scriptUrl;
+                    firstScript.parentNode.insertBefore(newScript, firstScript);
+                }, 10);
+            }
+        }(window, document, '//assets.pinterest.com/js/pinit_main.js'));
+    };
     SessionService.prototype.checkHome = function () {
         if (this.url == "/home") {
             this.home.emit(true);
@@ -764,6 +793,13 @@ var SessionService = (function () {
     SessionService.prototype.get = function () {
         this.id = localStorage.getItem('id');
         this.role = localStorage.getItem('role');
+        return this.http.get(this.BASE_URL + "/profile/" + this.role + "/" + this.id)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    SessionService.prototype.getBoard = function (id) {
+        this.id = id;
+        this.role = "stylist";
         return this.http.get(this.BASE_URL + "/profile/" + this.role + "/" + this.id)
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
@@ -890,7 +926,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__session_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__session_service__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_toastr_ng2_toastr__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_toastr_ng2_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng2_toastr_ng2_toastr__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
@@ -945,9 +981,9 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__search_search_component__ = __webpack_require__(346);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__profile_profile_component__ = __webpack_require__(345);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__search_booking_booking_component__ = __webpack_require__(542);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__session_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__session_service__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__search_service__ = __webpack_require__(225);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_router__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__app_routing__ = __webpack_require__(540);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ngx_dropdown__ = __webpack_require__(656);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ngx_dropdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_ngx_dropdown__);
@@ -1032,7 +1068,7 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup_component__ = __webpack_require__(347);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile_profile_component__ = __webpack_require__(345);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__search_search_component__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__session_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__session_service__ = __webpack_require__(36);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
 
 
@@ -1058,8 +1094,8 @@ var routes = [
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__session_service__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__session_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(40);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavbarComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1124,9 +1160,10 @@ var NavbarComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_service__ = __webpack_require__(225);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_toastr_ng2_toastr__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_toastr_ng2_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng2_toastr_ng2_toastr__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__session_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_service__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BookingComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1140,19 +1177,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var BookingComponent = (function () {
-    function BookingComponent(searchService, toastr) {
-        this.searchService = searchService;
+    function BookingComponent(session, search, zone, toastr) {
+        this.session = session;
+        this.search = search;
+        this.zone = zone;
         this.toastr = toastr;
         this.hour = "12";
         this.minute = "00";
         this.ampm = "pm";
         this.BASE_URL = 'https://estil-backend.herokuapp.com';
     }
+    BookingComponent.prototype.ngOnChanges = function () {
+        var _this = this;
+        //have to change board to undefined to reload the form in the html, the only way to get the pinterest board to update between stylists
+        this.board = undefined;
+        this.session.getBoard(this.stylist._id)
+            .subscribe(function (response) {
+            _this.zone.run(function () {
+                _this.board = response.user.board;
+                console.log(_this.board);
+                console.log(_this.stylist);
+                _this.session.runPinterest();
+            });
+        });
+    };
     BookingComponent.prototype.ngOnInit = function () {
         var date = new Date();
         this.date = this.formatDate(date);
         this.userId = localStorage.getItem("id");
+        console.log(this.stylist);
     };
     BookingComponent.prototype.formatDate = function (date) {
         var d = new Date(date), month = '' + (d.getMonth() + 1), day = '' + d.getDate(), year = d.getFullYear();
@@ -1173,7 +1229,7 @@ var BookingComponent = (function () {
             date: this.date,
             startTime: requestTime
         };
-        this.searchService.sendAppointment(appointmentData)
+        this.search.sendAppointment(appointmentData)
             .subscribe(function (response) {
             console.log(response);
             if (response) {
@@ -1194,10 +1250,10 @@ var BookingComponent = (function () {
             template: __webpack_require__(663),
             styles: [__webpack_require__(602)]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__search_service__["a" /* SearchService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__search_service__["a" /* SearchService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_toastr_ng2_toastr__["ToastsManager"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_ng2_toastr_ng2_toastr__["ToastsManager"]) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__session_service__["a" /* SessionService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__session_service__["a" /* SessionService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__search_service__["a" /* SearchService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__search_service__["a" /* SearchService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr__["ToastsManager"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr__["ToastsManager"]) === 'function' && _d) || Object])
     ], BookingComponent);
     return BookingComponent;
-    var _a, _b;
+    var _a, _b, _c, _d;
 }());
 //# sourceMappingURL=booking.component.js.map
 
@@ -1222,7 +1278,7 @@ var environment = {
 /***/ 597:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)();
+exports = module.exports = __webpack_require__(38)();
 // imports
 
 
@@ -1240,7 +1296,7 @@ module.exports = module.exports.toString();
 /***/ 598:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)();
+exports = module.exports = __webpack_require__(38)();
 // imports
 
 
@@ -1258,7 +1314,7 @@ module.exports = module.exports.toString();
 /***/ 599:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)();
+exports = module.exports = __webpack_require__(38)();
 // imports
 
 
@@ -1276,7 +1332,7 @@ module.exports = module.exports.toString();
 /***/ 600:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)();
+exports = module.exports = __webpack_require__(38)();
 // imports
 
 
@@ -1294,7 +1350,7 @@ module.exports = module.exports.toString();
 /***/ 601:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)();
+exports = module.exports = __webpack_require__(38)();
 // imports
 
 
@@ -1312,7 +1368,7 @@ module.exports = module.exports.toString();
 /***/ 602:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)();
+exports = module.exports = __webpack_require__(38)();
 // imports
 
 
@@ -1330,7 +1386,7 @@ module.exports = module.exports.toString();
 /***/ 603:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)();
+exports = module.exports = __webpack_require__(38)();
 // imports
 
 
@@ -1348,7 +1404,7 @@ module.exports = module.exports.toString();
 /***/ 604:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)();
+exports = module.exports = __webpack_require__(38)();
 // imports
 
 
@@ -1394,14 +1450,14 @@ module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"containe
 /***/ 662:
 /***/ (function(module, exports) {
 
-module.exports = "<script async defer src=\"//assets.pinterest.com/js/pinit.js\"></script>\n\n<div class=\"col-lg-3 col-md-4 col-xs-6 thumb profile-pic\">\n  <form>\n    <div class=\"form-group\">\n      <div *ngIf=\"user\">\n        <div *ngIf=\"!user.avatar\">\n          <a class=\"thumbnail\" href=\"#\">\n            <img src=\"../assets/images/default-avatar.png\">\n          </a>\n        </div>\n        <div *ngIf=\"user.avatar\">\n          <a class=\"thumbnail\" href=\"#\">\n            <img [src]=\"user.avatar\" />\n          </a>\n        </div>\n      </div>\n      <input type=\"file\" class=\"form-control\" name=\"avatar\" ng2FileSelect [uploader]=\"uploader\">\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary\" (click)=\"addAvatar()\">Add new avatar</button>\n  </form>\n  <ng-container *ngIf=\"role == 'stylist'\">\n  \t<div class=\"update-location\">\n\t\t<h4>Update your location fast!</h4>\n\t\t<input type=\"text\" id=\"location\" placeholder=\"Type here\">\n\t\t<p>or click</p>\n\t\t<button class=\"btn btn-success\" (click)=\"here()\">Here I am!</button>\n\t  </div>\n  </ng-container>\n</div>\n\n<div class=\"col-lg-5 col-md-8 col-xs-6\">\n  <ng-container *ngIf=\"role == 'user'\">\n\t\t<form *ngIf=\"!editCheck\">\n\t    <div *ngIf=\"user\">\n\t      <p> Email: {{ user.username }} </p>\n\t      <p> Name: {{ user.firstName }} {{ user.lastName }} </p>\n\t\t\t\t<button class=\"btn btn-primary\" (click)=\"profileToggle()\">Edit profile</button><hr>\n        <table style=\"width: 100%\">\n          <tr>\n            <th>Stylist</th>\n            <th>Date</th>\n            <th>Time</th>\n          </tr>\n          <ng-container *ngFor=\"let appointment of appointments\">\n            <tr>\n              <td>{{appointment.stylistName}}</td>\n              <td>{{appointment.date | date}}</td>\n              <td>{{appointment.startTime}}</td>\n            </tr>\n          </ng-container>\n        </table>\n\t    </div>\n\t  </form>\n\t  <form *ngIf=\"editCheck\">\n\t    <div *ngIf=\"user\">\n\t      <label for=\"username\">Email:</label>\n\t      <input type=\"text\" name=\"username\" value=\"{{ user.username }}\" [(ngModel)]=\"user.username\"><br>\n\t      <label for=\"firstName\">First Name:</label>\n\t      <input type=\"text\" name=\"firstName\" value=\"{{ user.firstName }}\" [(ngModel)]=\"user.firstName\"><br>\n\t      <label for=\"lastName\">Last Name:</label>\n\t      <input type=\"text\" name=\"lastName\" value=\"{{ user.lastName }}\" [(ngModel)]=\"user.lastName\"><br>\n\t      <button class=\"btn btn-info\" (click)=\"profileToggle()\">Update</button>\n\t    </div>\n\t  </form>\n\t</ng-container>\n\t<ng-container *ngIf=\"role == 'stylist'\">\n\t\t<form *ngIf=\"!editCheck\">\n\t\t\t<div *ngIf=\"user\">\n\t\t\t\t<p> Email: {{ user.username }} </p>\n\t\t\t\t<p> Name: {{ user.firstName }} {{ user.lastName }} </p>\n\t\t\t\t<p> Location: {{ user.location }}</p>\n        <p> Availability: {{ user.availability }}</p>\n        <p> Price: {{ user.price }}</p>\n        <p> Languages: {{ user.languages }}</p>\n        <p> Services: {{ user.services }}</p>\n\t\t\t\t<button class=\"btn btn-primary\" (click)=\"profileToggle()\">Edit profile</button><hr>\n        <table style=\"width: 100%\">\n          <tr>\n            <th>Customer</th>\n            <th>Date</th>\n            <th>Time</th>\n          </tr>\n          <ng-container *ngFor=\"let appointment of appointments\">\n            <tr>\n              <td>{{appointment.userName}}</td>\n              <td>{{appointment.date | date}}</td>\n              <td>{{appointment.startTime}}</td>\n            </tr>\n          </ng-container>\n        </table>\n\t\t\t</div>\n\t\t</form>\n\t\t<form *ngIf=\"editCheck\">\n\t\t\t<div *ngIf=\"user\">\n\t\t\t\t<label class=\"category\" for=\"username\">Email:</label>\n\t\t\t\t<input type=\"text\" name=\"username\" value=\"{{ user.username }}\" [(ngModel)]=\"user.username\"><br>\n\t\t\t\t<label class=\"category\" for=\"firstName\">First Name:</label>\n\t\t\t\t<input type=\"text\" name=\"firstName\" value=\"{{ user.firstName }}\" [(ngModel)]=\"user.firstName\"><br>\n\t\t\t\t<label class=\"category\" for=\"lastName\">Last Name:</label>\n\t\t\t\t<input type=\"text\" name=\"lastName\" value=\"{{ user.lastName }}\" [(ngModel)]=\"user.lastName\"><br>\n\t\t\t\t<label class=\"category\" for=\"availability\">Availability</label>\n\t\t\t\t\t<label><input type=\"checkbox\" name=\"Monday\" [(ngModel)]=\"days.Monday\">M</label>\n\t\t\t\t\t<label><input type=\"checkbox\" name=\"Tuesday\" [(ngModel)]=\"days.Tuesday\">T</label>\n\t\t\t\t\t<label><input type=\"checkbox\" name=\"Wednesday\" [(ngModel)]=\"days.Wednesday\">W</label>\n\t\t\t\t\t<label><input type=\"checkbox\" name=\"Thursday\" [(ngModel)]=\"days.Thursday\">T</label>\n\t\t\t\t\t<label><input type=\"checkbox\" name=\"Friday\" [(ngModel)]=\"days.Friday\">F</label>\n\t\t\t\t\t<label><input type=\"checkbox\" name=\"Saturday\" [(ngModel)]=\"days.Saturday\">S</label>\n\t\t\t\t\t<label><input type=\"checkbox\" name=\"Sunday\" [(ngModel)]=\"days.Sunday\">S</label><br>\n        <label class=\"category\" for=\"price\">Price</label>\n          <select name=\"price\" [(ngModel)]=\"user.price\" id=\"\">\n            <option value=\"€\">€</option>\n            <option value=\"€€\">€€</option>\n            <option value=\"€€€\">€€€</option>\n          </select>\n          <br>\n        <label class=\"category\" for=\"languages\">Languages</label>\n          <label><input type=\"checkbox\" name=\"Catalan\" [(ngModel)]=\"langs.Catalan\">Catalan</label>\n          <label><input type=\"checkbox\" name=\"Spanish\" [(ngModel)]=\"langs.Spanish\">Spanish</label>\n          <label><input type=\"checkbox\" name=\"English\" [(ngModel)]=\"langs.English\">English</label><br>\n        <label class=\"category\" for=\"services\">Services</label>\n          <label><input type=\"checkbox\" name=\"Blowdry\" [(ngModel)]=\"servs.Blowdry\">Blow Dry</label>\n          <label><input type=\"checkbox\" name=\"Color\" [(ngModel)]=\"servs.Color\">Color</label>\n          <label><input type=\"checkbox\" name=\"Cut\" [(ngModel)]=\"servs.Cut\">Cut</label><br>\n        <br>\n\t\t\t\t<button class=\"btn btn-info\" (click)=\"profileToggle()\">Update</button>\n\t\t\t</div>\n\t\t</form>\n\t</ng-container>\n\n</div>\n\n\n<div class=\"col-lg-4 thumb gallery\">\n  <h3 class=\"text-center\">Your Board</h3>\n  <form *ngIf=\"user\">\n    <input type=\"input\" name=\"board\" value=\"{{ user.board }}\" placeholder=\"https://es.pinterest.com/your/board/\" [(ngModel)]=\"user.board\" (ngModelChange)=\"updateBoard()\" id=\"board-url\">\n    <a data-pin-do=\"embedBoard\" data-pin-board-width=\"400\" data-pin-scale-height=\"400\" data-pin-scale-width=\"80\" href=\"{{user.board}}\"></a>\n  </form>\n</div>\n"
+module.exports = "<script async defer src=\"//assets.pinterest.com/js/pinit.js\"></script>\n\n<div class=\"col-lg-3 col-md-4 col-xs-6 thumb profile-pic\">\n  <form>\n    <div class=\"form-group\">\n      <div *ngIf=\"user\">\n        <div *ngIf=\"!user.avatar\">\n          <a class=\"thumbnail\" href=\"#\">\n            <img src=\"../assets/images/default-avatar.png\">\n          </a>\n        </div>\n        <div *ngIf=\"user.avatar\">\n          <a class=\"thumbnail\" href=\"#\">\n            <img [src]=\"user.avatar\" />\n          </a>\n        </div>\n      </div>\n      <input type=\"file\" class=\"form-control\" name=\"avatar\" ng2FileSelect [uploader]=\"uploader\">\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary\" (click)=\"addAvatar()\">Add new avatar</button>\n  </form>\n  <ng-container *ngIf=\"role == 'stylist'\">\n  \t<div class=\"update-location\">\n\t\t<h4>Update your location fast!</h4>\n\t\t<input type=\"text\" id=\"location\" placeholder=\"Type here\">\n\t\t<p>or click</p>\n\t\t<button class=\"btn btn-success\" (click)=\"here()\">Here I am!</button>\n\t  </div>\n  </ng-container>\n</div>\n\n<div class=\"col-lg-5 col-md-8 col-xs-6\">\n  <ng-container *ngIf=\"role == 'user'\">\n\t\t<form *ngIf=\"!editCheck\">\n\t    <div *ngIf=\"user\">\n\t      <p> Email: {{ user.username }} </p>\n\t      <p> Name: {{ user.firstName }} {{ user.lastName }} </p>\n\t\t\t\t<button class=\"btn btn-primary\" (click)=\"profileToggle()\">Edit profile</button><hr>\n        <table style=\"width: 100%\">\n          <tr>\n            <th>Stylist</th>\n            <th>Date</th>\n            <th>Time</th>\n          </tr>\n          <ng-container *ngFor=\"let appointment of appointments\">\n            <tr>\n              <td>{{appointment.stylistName}}</td>\n              <td>{{appointment.date | date}}</td>\n              <td>{{appointment.startTime}}</td>\n            </tr>\n          </ng-container>\n        </table>\n\t    </div>\n\t  </form>\n\t  <form *ngIf=\"editCheck\">\n\t    <div *ngIf=\"user\">\n\t      <label for=\"username\">Email:</label>\n\t      <input type=\"text\" name=\"username\" value=\"{{ user.username }}\" [(ngModel)]=\"user.username\"><br>\n\t      <button class=\"btn btn-info\" (click)=\"profileToggle()\">Update</button>\n\t    </div>\n\t  </form>\n\t</ng-container>\n\t<ng-container *ngIf=\"role == 'stylist'\">\n\t\t<form *ngIf=\"!editCheck\">\n\t\t\t<div *ngIf=\"user\">\n\t\t\t\t<p> Email: {{ user.username }} </p>\n\t\t\t\t<p> Name: {{ user.firstName }} {{ user.lastName }} </p>\n\t\t\t\t<p> Location: {{ user.location }}</p>\n        <p> Availability: {{ user.availability }}</p>\n        <p> Price: {{ user.price }}</p>\n        <p> Languages: {{ user.languages }}</p>\n        <p> Services: {{ user.services }}</p>\n\t\t\t\t<button class=\"btn btn-primary\" (click)=\"profileToggle()\">Edit profile</button><hr>\n        <table style=\"width: 100%\">\n          <tr>\n            <th>Customer</th>\n            <th>Date</th>\n            <th>Time</th>\n          </tr>\n          <ng-container *ngFor=\"let appointment of appointments\">\n            <tr>\n              <td>{{appointment.userName}}</td>\n              <td>{{appointment.date | date}}</td>\n              <td>{{appointment.startTime}}</td>\n            </tr>\n          </ng-container>\n        </table>\n\t\t\t</div>\n\t\t</form>\n\t\t<form *ngIf=\"editCheck\">\n\t\t\t<div *ngIf=\"user\">\n\t\t\t\t<label class=\"category\" for=\"username\">Email:</label>\n\t\t\t\t<input type=\"text\" name=\"username\" value=\"{{ user.username }}\" [(ngModel)]=\"user.username\"><br>\n\t\t\t\t<label class=\"category\" for=\"firstName\">First Name:</label>\n\t\t\t\t<input type=\"text\" name=\"firstName\" value=\"{{ user.firstName }}\" [(ngModel)]=\"user.firstName\"><br>\n\t\t\t\t<label class=\"category\" for=\"lastName\">Last Name:</label>\n\t\t\t\t<input type=\"text\" name=\"lastName\" value=\"{{ user.lastName }}\" [(ngModel)]=\"user.lastName\"><br>\n\t\t\t\t<label class=\"category\" for=\"availability\">Availability</label>\n\t\t\t\t\t<label><input type=\"checkbox\" name=\"Monday\" [(ngModel)]=\"days.Monday\">M</label>\n\t\t\t\t\t<label><input type=\"checkbox\" name=\"Tuesday\" [(ngModel)]=\"days.Tuesday\">T</label>\n\t\t\t\t\t<label><input type=\"checkbox\" name=\"Wednesday\" [(ngModel)]=\"days.Wednesday\">W</label>\n\t\t\t\t\t<label><input type=\"checkbox\" name=\"Thursday\" [(ngModel)]=\"days.Thursday\">T</label>\n\t\t\t\t\t<label><input type=\"checkbox\" name=\"Friday\" [(ngModel)]=\"days.Friday\">F</label>\n\t\t\t\t\t<label><input type=\"checkbox\" name=\"Saturday\" [(ngModel)]=\"days.Saturday\">S</label>\n\t\t\t\t\t<label><input type=\"checkbox\" name=\"Sunday\" [(ngModel)]=\"days.Sunday\">S</label><br>\n        <label class=\"category\" for=\"price\">Price</label>\n          <select name=\"price\" [(ngModel)]=\"user.price\" id=\"\">\n            <option value=\"€\">€</option>\n            <option value=\"€€\">€€</option>\n            <option value=\"€€€\">€€€</option>\n          </select>\n          <br>\n        <label class=\"category\" for=\"languages\">Languages</label>\n          <label><input type=\"checkbox\" name=\"Catalan\" [(ngModel)]=\"langs.Catalan\">Catalan</label>\n          <label><input type=\"checkbox\" name=\"Spanish\" [(ngModel)]=\"langs.Spanish\">Spanish</label>\n          <label><input type=\"checkbox\" name=\"English\" [(ngModel)]=\"langs.English\">English</label><br>\n        <label class=\"category\" for=\"services\">Services</label>\n           <label><input type=\"checkbox\" name=\"Unisex\" [(ngModel)]=\"servs.Unisex\">Unisex</label>\n+          <label><input type=\"checkbox\" name=\"Men\" [(ngModel)]=\"servs.Men\">Men</label>\n+          <label><input type=\"checkbox\" name=\"Women\" [(ngModel)]=\"servs.Women\">Women</label><br>\n        <br>\n\t\t\t\t<button class=\"btn btn-info\" (click)=\"profileToggle()\">Update</button>\n\t\t\t</div>\n\t\t</form>\n\t</ng-container>\n\n</div>\n\n\n<div class=\"col-lg-4 thumb gallery\">\n  <h3 class=\"text-center\">Your Board</h3>\n  <form *ngIf=\"user\">\n    <input type=\"input\" name=\"board\" value=\"{{ user.board }}\" placeholder=\"https://es.pinterest.com/your/board/\" [(ngModel)]=\"user.board\" (ngModelChange)=\"updateBoard()\" id=\"board-url\">\n    <a data-pin-do=\"embedBoard\" data-pin-board-width=\"400\" data-pin-scale-height=\"400\" data-pin-scale-width=\"80\" href=\"{{user.board}}\"></a>\n  </form>\n</div>\n"
 
 /***/ }),
 
 /***/ 663:
 /***/ (function(module, exports) {
 
-module.exports = "<button class=\"btn btn-success\" (click)=\"makeAppointment()\">Make an appointment</button>\n<input type=\"date\" [(ngModel)]=\"date\">\n<select name=\"\" id=\"\" [(ngModel)]=\"hour\">\n  <option value=\"1\">1</option>\n  <option value=\"2\">2</option>\n  <option value=\"3\">3</option>\n  <option value=\"4\">4</option>\n  <option value=\"5\">5</option>\n  <option value=\"6\">6</option>\n  <option value=\"7\">7</option>\n  <option value=\"8\">8</option>\n  <option value=\"9\">9</option>\n  <option value=\"10\">10</option>\n  <option value=\"11\">11</option>\n  <option value=\"12\">12</option>\n</select>\n<select name=\"\" id=\"\" [(ngModel)]=\"minute\">\n  <option value=\"00\">00</option>\n  <option value=\"15\">15</option>\n  <option value=\"30\">30</option>\n  <option value=\"45\">45</option>\n</select>\n<select name=\"\" id=\"\" [(ngModel)]=\"ampm\">\n  <option value=\"am\">am</option>\n  <option value=\"pm\">pm</option>\n</select>\n\n<div class=\"col-xs-6\">\n  <div id=\"stylist-board\">\n    <h4>Individual stylist's pinterest board</h4>\n  </div>\n  <!-- doesn't work, need to explore proper api instead of using widget -->\n  <!-- <form *ngIf=\"user\"> -->\n    <!-- <input type=\"input\" name=\"board\" value=\"{{ user.board }}\" placeholder=\"https://es.pinterest.com/your/board/\" [(ngModel)]=\"user.board\" (ngModelChange)=\"updateBoard()\" id=\"board-url\"> -->\n    <!-- <p>{{board}}</p> -->\n    <!-- <a data-pin-do=\"embedBoard\" data-pin-board-width=\"400\" data-pin-scale-height=\"240\" data-pin-scale-width=\"80\" href=\"https://www.pinterest.com/pinterest/official-news/\"></a> -->\n    <!-- <a data-pin-do=\"embedBoard\" data-pin-board-width=\"400\" data-pin-scale-height=\"400\" data-pin-scale-width=\"80\" href=\"{{board}}\"></a> -->\n  <!-- </form> -->\n</div>\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col-xs-6\" id=\"make-appointment\">\n    <button class=\"btn btn-success\" (click)=\"makeAppointment()\">Make an appointment</button>\n    <input type=\"date\" [(ngModel)]=\"date\">\n    <select name=\"\" id=\"\" [(ngModel)]=\"hour\">\n      <option value=\"1\">1</option>\n      <option value=\"2\">2</option>\n      <option value=\"3\">3</option>\n      <option value=\"4\">4</option>\n      <option value=\"5\">5</option>\n      <option value=\"6\">6</option>\n      <option value=\"7\">7</option>\n      <option value=\"8\">8</option>\n      <option value=\"9\">9</option>\n      <option value=\"10\">10</option>\n      <option value=\"11\">11</option>\n      <option value=\"12\">12</option>\n    </select>\n    <select name=\"\" id=\"\" [(ngModel)]=\"minute\">\n      <option value=\"00\">00</option>\n      <option value=\"15\">15</option>\n      <option value=\"30\">30</option>\n      <option value=\"45\">45</option>\n    </select>\n    <select name=\"\" id=\"\" [(ngModel)]=\"ampm\">\n      <option value=\"am\">am</option>\n      <option value=\"pm\">pm</option>\n    </select>\n  </div>\n\n<div class=\"col-xs-6\" id=\"board\">\n\n  <form *ngIf=\"board\">\n    <a data-pin-do=\"embedBoard\" data-pin-board-width=\"400\" data-pin-scale-height=\"400\" data-pin-scale-width=\"80\" [href]=\"board\" id=\"board\"></a>\n  </form>\n</div>\n</div>\n"
 
 /***/ }),
 
