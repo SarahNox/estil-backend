@@ -18,7 +18,7 @@ var authController = require('./routes/authController');
 // var userProfile = require('./routes/userProfile');
 // var stylistProfile = require('./routes/stylistProfile');
 
-mongoose.connect('mongodb://localhost/estil');
+mongoose.connect(process.env.MONGODB_URI);
 
 var app = express();
 
