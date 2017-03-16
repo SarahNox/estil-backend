@@ -27,7 +27,7 @@ var SearchService = (function () {
     function SearchService(router, http) {
         this.router = router;
         this.http = http;
-        this.BASE_URL = 'http://localhost:3000';
+        this.BASE_URL = 'https://estil-backend.herokuapp.com';
     }
     SearchService.prototype.search = function (location) {
         var locationObject = { "location": location };
@@ -228,7 +228,7 @@ var ProfileComponent = (function () {
         this.days = {};
         this.langs = {};
         this.servs = {};
-        this.BASE_URL = 'http://localhost:3000';
+        this.BASE_URL = 'https://estil-backend.herokuapp.com';
     }
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -398,7 +398,7 @@ var SearchComponent = (function () {
         this.zone = zone;
         this.list = false;
         this.distance = 10;
-        this.BASE_URL = 'http://localhost:3000';
+        this.BASE_URL = 'https://estil-backend.herokuapp.com';
     }
     SearchComponent.prototype.shrinkMap = function (stylist) {
         document.getElementById("col-map").style.display = "none";
@@ -729,7 +729,7 @@ var SessionService = (function () {
         this.http = http;
         this.isAuth = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.home = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
-        this.BASE_URL = 'http://localhost:3000';
+        this.BASE_URL = 'https://estil-backend.herokuapp.com';
         this.token = localStorage.getItem('token');
         if (this.token != null) {
             this.isAuth.emit(true);
@@ -1132,7 +1132,7 @@ var BookingComponent = (function () {
         this.hour = "12";
         this.minute = "00";
         this.ampm = "pm";
-        this.BASE_URL = 'http://localhost:3000';
+        this.BASE_URL = 'https://estil-backend.herokuapp.com';
     }
     BookingComponent.prototype.ngOnInit = function () {
         var date = new Date();
