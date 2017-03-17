@@ -1304,7 +1304,7 @@ exports = module.exports = __webpack_require__(38)();
 
 
 // module
-exports.push([module.i, "img {\n  position: absolute;\n  top: 30%;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n}\n", ""]);
+exports.push([module.i, "img {\n  width: 30%;\n  height: auto;\n  position: absolute;\n  top: 4em;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n}\nh2 {\n  font-size: 2em;\n  position: absolute;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n}\nh2:first-of-type {\n  top: 8em;\n}\nh2:nth-of-type(2){\n  top: 9.5em;\n}\n@media only screen and (max-width : 1200px) {\n  img {\n    width: 35%;\n    height: auto;\n    position: absolute;\n    top: 4em;\n    left: 50%;\n    -webkit-transform: translateX(-50%);\n            transform: translateX(-50%);\n  }\n}\n@media only screen and (max-width : 979px) {\n}\n@media only screen and (max-width : 767px) {\n  img {\n    width: 60%;\n  }\n  h2 {\n    position: relative;\n    font-size: 2em;\n    text-align: center;\n  }\n  h2:first-of-type, h2:nth-of-type(2) {\n    top: 8em;\n  }\n}\n@media only screen and (max-width : 480px) {\n  img {\n    width: 80%;\n  }\n  h2 {\n    font-size: 1.5em;\n  }\n}\n", ""]);
 
 // exports
 
@@ -1432,7 +1432,7 @@ module.exports = "<app-navbar></app-navbar>\n<div class=\"row\">\n\t<div class=\
 /***/ 659:
 /***/ (function(module, exports) {
 
-module.exports = "<img src=\"../assets/images/estil.png\" alt=\"\">\n"
+module.exports = "<div class=\"container ngcontainer\">\n  <div class=\"row\">\n    <div class=\"col-xs-12\">\n      <img src=\"../assets/images/estil.png\" alt=\"\">\n      <h2>Need a haircut?</h2>\n      <h2>Good start.</h2>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
