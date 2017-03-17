@@ -228,7 +228,7 @@ var ProfileComponent = (function () {
         this.days = {};
         this.langs = {};
         this.servs = {};
-        this.BASE_URL = 'http://localhost:3000';
+        this.BASE_URL = 'https://estil-backend.herokuapp.com';
     }
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
