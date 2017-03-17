@@ -142,6 +142,7 @@ router.put('/profile/:role/:id', (req, res) => {
       username: req.body.username,
       availability: req.body.availability,
       price: req.body.price,
+      mobile: req.body.mobile,
       languages: req.body.languages,
       services: req.body.services,
       board: req.body.board
