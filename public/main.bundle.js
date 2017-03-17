@@ -1358,7 +1358,7 @@ exports = module.exports = __webpack_require__(38)();
 
 
 // module
-exports.push([module.i, "#location {\n  font-size: 18px;\n}\n\n.update-location {\n  margin-top: 15%;\n}\n\n.update-location input {\n  display: block;\n  margin-top: 5%;\n  margin-bottom: 5%;\n}\n\n.update-location p, .update-location button {\n  display: inline;\n  margin: 0 2%;\n}\n\n.update-location button {\n  font-size: 17px;\n}\n\nselect {\n  display: inline-block;;\n}\n\n.category {\n  width: 25%;\n  margin-bottom: 3%;\n}\n", ""]);
+exports.push([module.i, "#location {\n  font-size: 18px;\n}\n\n.update-location {\n  margin-top: 15%;\n}\n\n.update-location input {\n  display: block;\n  margin-top: 5%;\n  margin-bottom: 5%;\n}\n\n.update-location p, .update-location button {\n  display: inline;\n  margin: 0 2%;\n}\n\n.update-location button {\n  font-size: 17px;\n}\n\nselect {\n  display: inline-block;;\n}\n\n.category {\n  width: 25%;\n  margin-bottom: 3%;\n}\n\n#board-url {\nwidth: 100%;\nmargin-bottom: 5%;\n}\n", ""]);
 
 // exports
 
