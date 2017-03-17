@@ -1376,7 +1376,7 @@ exports = module.exports = __webpack_require__(38)();
 
 
 // module
-exports.push([module.i, "button, input[type=\"date\"] {\n  display: block\n}\n\nbutton {\n  margin-top: 10%;\n  margin-bottom: 3%;\n}\ninput[type=\"date\"] {\n  margin-bottom: 3%;\n}\n\nbutton, input[type=\"date\"], select:first-of-type {\n  margin-left: 15%;\n}\n", ""]);
+exports.push([module.i, "button, input[type=\"date\"] {\n  display: block\n}\n\nbutton {\n  margin-bottom: 3%;\n}\ninput[type=\"date\"] {\n  margin-bottom: 3%;\n}\n\nbutton, input[type=\"date\"], select:first-of-type {\n  margin-left: 20%;\n}\n\n#stylist-board {\n  width: 100%;\n  height: 400px;\n  border: 2px solid black;\n  margin-top: 4em;\n  text-align: center;\n}\n\n#make-appointment {\n  margin-top: 5em;\n}\n\n#board {\n  margin-top: 2em;\n}\n", ""]);
 
 // exports
 
