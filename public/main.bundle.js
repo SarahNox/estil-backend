@@ -42,7 +42,7 @@ var HomeComponent = (function () {
             selector: 'app-home',
             template: __webpack_require__(879),
             styles: [__webpack_require__(795)]
-        }), 
+        }),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__main_service__["a" /* MainService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__main_service__["a" /* MainService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object])
     ], HomeComponent);
     return HomeComponent;
@@ -125,7 +125,7 @@ var LoginComponent = (function () {
             selector: 'app-login',
             template: __webpack_require__(880),
             styles: [__webpack_require__(796)]
-        }), 
+        }),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__main_service__["a" /* MainService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__main_service__["a" /* MainService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__session_service__["a" /* SessionService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__session_service__["a" /* SessionService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4_ng2_toastr_ng2_toastr__["ToastsManager"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4_ng2_toastr_ng2_toastr__["ToastsManager"]) === 'function' && _d) || Object])
     ], LoginComponent);
     return LoginComponent;
@@ -183,7 +183,7 @@ var ProfileComponent = (function () {
         this.days = {};
         this.langs = {};
         this.servs = {};
-        this.BASE_URL = 'http://localhost:3000';
+        this.BASE_URL = 'http://https://estil-backend.herokuapp.com';
     }
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -334,7 +334,7 @@ var ProfileComponent = (function () {
             selector: 'app-profile',
             template: __webpack_require__(882),
             styles: [__webpack_require__(798)]
-        }), 
+        }),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__session_service__["a" /* SessionService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__session_service__["a" /* SessionService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__main_service__["a" /* MainService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__main_service__["a" /* MainService */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4_ng2_toastr_ng2_toastr__["ToastsManager"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4_ng2_toastr_ng2_toastr__["ToastsManager"]) === 'function' && _e) || Object, (typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* Http */]) === 'function' && _f) || Object, (typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === 'function' && _g) || Object, (typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]) === 'function' && _h) || Object])
     ], ProfileComponent);
     return ProfileComponent;
@@ -375,7 +375,7 @@ var SearchComponent = (function () {
         this.zone = zone;
         this.list = false;
         this.distance = 10;
-        this.BASE_URL = 'http://localhost:3000';
+        this.BASE_URL = 'http://https://estil-backend.herokuapp.com';
     }
     SearchComponent.prototype.shrinkMap = function (stylist) {
         var _this = this;
@@ -574,7 +574,7 @@ var SearchComponent = (function () {
             template: __webpack_require__(884),
             styles: [__webpack_require__(800)],
             providers: [__WEBPACK_IMPORTED_MODULE_1__main_service__["a" /* MainService */]]
-        }), 
+        }),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__main_service__["a" /* MainService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__main_service__["a" /* MainService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__session_service__["a" /* SessionService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__session_service__["a" /* SessionService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]) === 'function' && _d) || Object])
     ], SearchComponent);
     return SearchComponent;
@@ -667,7 +667,7 @@ var SignupComponent = (function () {
             selector: 'app-signup',
             template: __webpack_require__(885),
             styles: [__webpack_require__(801)]
-        }), 
+        }),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__main_service__["a" /* MainService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__main_service__["a" /* MainService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__session_service__["a" /* SessionService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__session_service__["a" /* SessionService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4_ng2_toastr_ng2_toastr__["ToastsManager"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4_ng2_toastr_ng2_toastr__["ToastsManager"]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]) === 'function' && _e) || Object, (typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === 'function' && _f) || Object])
     ], SignupComponent);
     return SignupComponent;
@@ -711,7 +711,7 @@ var SessionService = (function () {
         this.router = router;
         this.http = http;
         this.isAuth = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
-        this.BASE_URL = 'http://localhost:3000';
+        this.BASE_URL = 'http://https://estil-backend.herokuapp.com';
         this.token = localStorage.getItem('token');
         if (this.token != null) {
             this.isAuth.emit(true);
@@ -806,7 +806,7 @@ var SessionService = (function () {
         this.router.navigate(['/login']);
     };
     SessionService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === 'function' && _b) || Object])
     ], SessionService);
     return SessionService;
@@ -843,7 +843,7 @@ var MainService = (function () {
     function MainService(router, http) {
         this.router = router;
         this.http = http;
-        this.BASE_URL = 'http://localhost:3000';
+        this.BASE_URL = 'http://https://estil-backend.herokuapp.com';
         this.home = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     MainService.prototype.runPinterest = function () {
@@ -894,7 +894,7 @@ var MainService = (function () {
         return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(e.json().message);
     };
     MainService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === 'function' && _b) || Object])
     ], MainService);
     return MainService;
@@ -973,7 +973,7 @@ var AppComponent = (function () {
             template: __webpack_require__(878),
             styles: [__webpack_require__(794)],
             providers: [__WEBPACK_IMPORTED_MODULE_1__session_service__["a" /* SessionService */]]
-        }), 
+        }),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__session_service__["a" /* SessionService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__session_service__["a" /* SessionService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_toastr_ng2_toastr__["ToastsManager"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_ng2_toastr_ng2_toastr__["ToastsManager"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"]) === 'function' && _c) || Object])
     ], AppComponent);
     return AppComponent;
@@ -1072,7 +1072,7 @@ var AppModule = (function () {
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_14__session_service__["a" /* SessionService */], __WEBPACK_IMPORTED_MODULE_15__main_service__["a" /* MainService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], AppModule);
     return AppModule;
@@ -1171,7 +1171,7 @@ var NavbarComponent = (function () {
             selector: 'app-navbar',
             template: __webpack_require__(881),
             styles: [__webpack_require__(797)]
-        }), 
+        }),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__session_service__["a" /* SessionService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__session_service__["a" /* SessionService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__main_service__["a" /* MainService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__main_service__["a" /* MainService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _c) || Object])
     ], NavbarComponent);
     return NavbarComponent;
@@ -1214,7 +1214,7 @@ var BookingComponent = (function () {
         this.hour = "12";
         this.minute = "00";
         this.ampm = "pm";
-        this.BASE_URL = 'http://localhost:3000';
+        this.BASE_URL = 'http://https://estil-backend.herokuapp.com';
     }
     BookingComponent.prototype.ngOnChanges = function () {
         var _this = this;
@@ -1267,7 +1267,7 @@ var BookingComponent = (function () {
         });
     };
     __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
         __metadata('design:type', Object)
     ], BookingComponent.prototype, "stylist", void 0);
     BookingComponent = __decorate([
@@ -1275,7 +1275,7 @@ var BookingComponent = (function () {
             selector: 'app-booking',
             template: __webpack_require__(883),
             styles: [__webpack_require__(799)]
-        }), 
+        }),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__session_service__["a" /* SessionService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__session_service__["a" /* SessionService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__main_service__["a" /* MainService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__main_service__["a" /* MainService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr__["ToastsManager"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_ng2_toastr_ng2_toastr__["ToastsManager"]) === 'function' && _d) || Object])
     ], BookingComponent);
     return BookingComponent;
