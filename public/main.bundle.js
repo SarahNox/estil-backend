@@ -183,7 +183,7 @@ var ProfileComponent = (function () {
         this.days = {};
         this.langs = {};
         this.servs = {};
-        this.BASE_URL = 'https://https://estil-backend.herokuapp.com';
+        this.BASE_URL = 'https://estil-backend.herokuapp.com';
     }
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -375,7 +375,7 @@ var SearchComponent = (function () {
         this.zone = zone;
         this.list = false;
         this.distance = 10;
-        this.BASE_URL = 'https://https://estil-backend.herokuapp.com';
+        this.BASE_URL = 'https://estil-backend.herokuapp.com';
     }
     SearchComponent.prototype.shrinkMap = function (stylist) {
         var _this = this;
@@ -711,7 +711,7 @@ var SessionService = (function () {
         this.router = router;
         this.http = http;
         this.isAuth = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
-        this.BASE_URL = 'https://https://estil-backend.herokuapp.com';
+        this.BASE_URL = 'https://estil-backend.herokuapp.com';
         this.token = localStorage.getItem('token');
         if (this.token != null) {
             this.isAuth.emit(true);
@@ -843,7 +843,7 @@ var MainService = (function () {
     function MainService(router, http) {
         this.router = router;
         this.http = http;
-        this.BASE_URL = 'https://https://estil-backend.herokuapp.com';
+        this.BASE_URL = 'https://estil-backend.herokuapp.com';
         this.home = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     MainService.prototype.runPinterest = function () {
@@ -1214,7 +1214,7 @@ var BookingComponent = (function () {
         this.hour = "12";
         this.minute = "00";
         this.ampm = "pm";
-        this.BASE_URL = 'https://https://estil-backend.herokuapp.com';
+        this.BASE_URL = 'https://estil-backend.herokuapp.com';
     }
     BookingComponent.prototype.ngOnChanges = function () {
         var _this = this;
