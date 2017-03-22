@@ -436,7 +436,7 @@ var SearchComponent = (function () {
             position: myPosition,
             map: map
         });
-        this.myLocationMarker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+        this.myLocationMarker.setIcon('https://maps.google.com/mapfiles/ms/icons/green-dot.png');
         this.myLocationInfoWindow = new google.maps.InfoWindow({
             content: "You are here"
         });
@@ -469,7 +469,7 @@ var SearchComponent = (function () {
                 position: { "lat": place.geometry.location.lat(), "lng": place.geometry.location.lng() },
                 map: map,
             });
-            this.myLocationMarker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+            this.myLocationMarker.setIcon('https://maps.google.com/mapfiles/ms/icons/green-dot.png');
             this.myLocationInfoWindow.open(map, this.myLocationMarker);
             //
             this.mainService.search([place.geometry.location.lng(), place.geometry.location.lat()])
