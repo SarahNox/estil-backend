@@ -244,7 +244,6 @@ var ProfileComponent = (function () {
             this.editCheck = false;
             this.session.edit(this.user)
                 .subscribe(function (result) {
-                console.log(result);
                 if (result) {
                     _this.toastr.success('User updated');
                 }
@@ -260,8 +259,6 @@ var ProfileComponent = (function () {
     ProfileComponent.prototype.updateLocationEventListener = function () {
         var stylistLocation = document.getElementById('location');
         var stylistPlace = new google["maps"].places.Autocomplete(stylistLocation);
-        console.log("stylistLocation", stylistLocation);
-        console.log("stylistPlace", stylistPlace);
         google["maps"].event.addListener(stylistPlace, 'place_changed', function () {
             var _this = this;
             this.zone.run(function () {
@@ -487,7 +484,6 @@ var SearchComponent = (function () {
         //AUTOCOMPLETE END
         this.mainService.search([myPosition.lng, myPosition.lat])
             .subscribe(function (response) {
-            console.log(response);
             _this.zone.run(function () {
                 var stylistData = {};
                 response.forEach(function (stylist, index) {
@@ -1224,8 +1220,6 @@ var BookingComponent = (function () {
             .subscribe(function (response) {
             _this.zone.run(function () {
                 _this.board = response.user.board;
-                console.log(_this.board);
-                console.log(_this.stylist);
                 _this.mainService.runPinterest();
             });
         });
@@ -1234,7 +1228,6 @@ var BookingComponent = (function () {
         var date = new Date();
         this.date = this.formatDate(date);
         this.userId = localStorage.getItem("id");
-        console.log(this.stylist);
     };
     BookingComponent.prototype.formatDate = function (date) {
         var d = new Date(date), month = '' + (d.getMonth() + 1), day = '' + d.getDate(), year = d.getFullYear();
@@ -1257,7 +1250,6 @@ var BookingComponent = (function () {
         };
         this.mainService.sendAppointment(appointmentData)
             .subscribe(function (response) {
-            console.log(response);
             if (response) {
                 _this.toastr.success('Appointment saved to your Profile');
             }
